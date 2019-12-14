@@ -1,10 +1,14 @@
-const cacheName = "lysine"
-const filesToCache = ["/lysine/", "/lysine/index.html", "/lysine/index.css", "/lysine/index.js"]
+// This is the source code for the service worker.
 
-self.addEventListener("install", function(e) {
-  e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      return cache.addAll(filesToCache)
+const cacheKey = "lysine"
+const assetNames = ["", "index.html", "index.css", "index.js"]
+const url = self.location.pathname.substr(0, self.location.pathname.length - 9)
+const filePaths = assetNames.map(filename => url + filename)
+
+self.addEventListener("install", function(event) {
+  event.waitUntil(
+    caches.open(cacheKey).then(function(cache) {
+      return cache.addAll(filePaths)
     })
   )
 })
@@ -14,8 +18,15 @@ self.addEventListener("activate", event => {
 })
 
 self.addEventListener("fetch", event => {
+  console.log("request to fetch:", event.url)
   event.respondWith(
-    caches.match(event.request, { ignoreSearch: true }).then(response => {
+    caches.match(event.request).then(response => {
+      if (response) {
+        console.log("found cached file response")
+      } else {
+        console.log("found cached file response")
+      }
+      console.log(response)
       return response || fetch(event.request)
     })
   )
