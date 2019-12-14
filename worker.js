@@ -1,5 +1,5 @@
-var cacheName = "hello-world-page";
-var filesToCache = ["/", "/index.html", "/main.css"];
+var cacheName = "lysine";
+var filesToCache = ["/lysine/", "/lysine/index.html", "/lysine/main.css"];
 
 self.addEventListener("install", function(e) {
   console.log("[ServiceWorker] Install");
