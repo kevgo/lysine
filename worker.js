@@ -1,11 +1,9 @@
-var cacheName = "lysine"
-var filesToCache = ["/lysine/", "/lysine/index.html", "/lysine/index.css"]
+const cacheName = "lysine"
+const filesToCache = ["/lysine/", "/lysine/index.html", "/lysine/index.css", "/lysine/index.js"]
 
 self.addEventListener("install", function(e) {
-  console.log("[ServiceWorker] Install")
   e.waitUntil(
     caches.open(cacheName).then(function(cache) {
-      console.log("[ServiceWorker] Caching app shell")
       return cache.addAll(filesToCache)
     })
   )
