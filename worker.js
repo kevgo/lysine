@@ -1,5 +1,5 @@
 var cacheName = "lysine"
-var filesToCache = ["/lysine/", "/lysine/index.html", "/lysine/main.css"]
+var filesToCache = ["/lysine/", "/lysine/index.html", "/lysine/index.css"]
 
 self.addEventListener("install", function(e) {
   console.log("[ServiceWorker] Install")
