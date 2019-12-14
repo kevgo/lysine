@@ -1,4 +1,6 @@
-local:  ## runs the server locally
-	@echo open http://penguin.linux.test:2015 in your browser
-	@echo
-	@./caddy
+local-start:  ## starts the local dev server
+	@./dev/caddy &
+	@xdg-open http://penguin.linux.test:2015
+
+local-stop:  ## stops the local dev server
+	@killall caddy
