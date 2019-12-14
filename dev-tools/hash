@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+// Hashes file content
+
+console.log("hello")
+const filename = Process.
