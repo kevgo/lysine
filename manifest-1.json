@@ -1,0 +1,20 @@
+{
+  "name": "Lysine/Arginine ratios in foods",
+  "short_name": "Lysine",
+  "icons": [
+    {
+      "src": "icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/lysine/index.html",
+  "display": "standalone",
+  "background_color": "#FF9800",
+  "theme_color": "#FF9800"
+}

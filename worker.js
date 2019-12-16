@@ -1,24 +1,23 @@
-var cacheName = "hello-world-page";
-var filesToCache = ["/", "/index.html", "/main.css"];
+// This is the source code for the service worker.
 
-self.addEventListener("install", function(e) {
-  console.log("[ServiceWorker] Install");
-  e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      console.log("[ServiceWorker] Caching app shell");
-      return cache.addAll(filesToCache);
-    })
-  );
-});
+const CACHE_KEY = "lysine"
 
-self.addEventListener("activate", event => {
-  event.waitUntil(self.clients.claim());
-});
+self.addEventListener("install", async function() {
+  const cache = await caches.open(CACHE_KEY)
+  return cache.add(self.location.pathname.substr(0, self.location.pathname.length - 9))
+})
 
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request, { ignoreSearch: true }).then(response => {
-      return response || fetch(event.request);
-    })
-  );
-});
+self.addEventListener("activate", async function() {
+  await self.clients.claim()
+})
+
+self.addEventListener("fetch", async function(event) {
+  const cache = await caches.open(CACHE_KEY)
+  const cached = await cache.match(event.request)
+  if (cached) {
+    return cached
+  }
+  const fetched = await fetch(event.request)
+  cache.put(event.request, fetched.clone())
+  return fetched
+})
