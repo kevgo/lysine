@@ -28,7 +28,7 @@
   </head>
   <body>
     <h1 class="vertical-container">Lysine</h1>
-    <input type="text" />
+    <input id="search" type="search" onkeypress="search()" autofocus />
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("worker.js").catch(function(error) {
@@ -38,9 +38,9 @@
         console.error("no service worker support")
       }
 
-      document.addEventListener("DOMContentLoaded", function() {
-        console.log("loaded")
-      })
+      function search(e) {
+        console.log("searching")
+      }
     </script>
   </body>
 </html>
