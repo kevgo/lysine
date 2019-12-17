@@ -32,14 +32,20 @@
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("worker.js").catch(function(error) {
-          console.error("service worker registration failed:", error)
+          console.error("cannot register service worker:", error)
         })
       } else {
         console.error("no service worker support")
       }
 
-      function search(e) {
+      var dataLoaded = false
+      setTimeout(async function() {
+        const response = fetch()
+      }, 1)
+
+      async function search(e) {
         console.log("searching")
+        console.log(e)
       }
     </script>
   </body>
