@@ -10,3 +10,6 @@ local-start:  ## starts the local dev server
 
 local-stop:  ## stops the local dev server
 	@killall caddy
+
+u:  ## runs the unit tests
+	@node --no-warnings test/trie-test.js
