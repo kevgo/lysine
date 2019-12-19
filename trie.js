@@ -1,12 +1,14 @@
 export class Trie {
   constructor() {
     this.subTries = {} // letter --> Trie
-    this.values = [] // the values exactly matching this trie
+    this.values = [] // the values exactly matching this trie and all its subtries
   }
 
-  add(key, value) {
-    if (key.length === 0) {
+  add(key, value, depth = 0) {
+    if (depth > 1) {
       this.values.push(value)
+    }
+    if (key.length === 0) {
       return
     }
     const firstLetter = key[0]
@@ -14,24 +16,15 @@ export class Trie {
     if (this.subTries[firstLetter] === undefined) {
       this.subTries[firstLetter] = new Trie()
     }
-    this.subTries[firstLetter].add(remainder, value)
+    this.subTries[firstLetter].add(remainder, value, depth + 1)
   }
 
   search(query) {
     if (query.length === 0) {
-      return this.allValues()
+      return this.values
     }
     const firstLetter = query[0]
     const remainder = query.substring(1)
     return this.subTries[firstLetter].search(remainder)
-  }
-
-  // returns all values of all subtries
-  allValues() {
-    let result = this.values.slice(0)
-    for (const subTrie of Object.values(this.subTries)) {
-      result = result.concat(subTrie.allValues())
-    }
-    return result
   }
 }
