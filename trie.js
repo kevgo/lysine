@@ -8,6 +8,9 @@ export class Trie {
     if (depth > 1) {
       this.values.push(value)
     }
+    if (depth > 6) {
+      return
+    }
     if (key.length === 0) {
       return
     }
