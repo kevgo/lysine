@@ -11,5 +11,7 @@ local-start:  ## starts the local dev server
 local-stop:  ## stops the local dev server
 	@killall caddy
 
-u:  ## runs the unit tests
-	@node --no-warnings test/trie-test.js
+test:  ## runs the unit tests
+	@node --no-warnings test/trie-tests.mjs
+	@node --no-warnings test/nutrients-db-test.mjs
+.PHONY: test

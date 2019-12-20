@@ -18,3 +18,7 @@ Local development:
 - `make local-start`
 - open http://penguin.linux.test:2015 in your browser
 - to stop the web server: `make local-stop`
+
+Run tests:
+
+- `make test`
