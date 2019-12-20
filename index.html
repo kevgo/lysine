@@ -28,7 +28,7 @@
   </head>
   <body>
     <h1 class="vertical-container">Lysine</h1>
-    <input id="search" type="search" onkeypress="search()" autofocus />
+    <input id="search" type="search" autofocus />
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("worker.js").catch(function(error) {
@@ -37,16 +37,27 @@
       } else {
         console.error("no service worker support")
       }
+    </script>
+    <script type="module">
+      import { NutrientsDB } from "./index.js"
 
-      var dataLoaded = false
-      setTimeout(async function() {
-        const response = fetch()
-      }, 1)
+      let nutrientsDB
+      let searchInput
 
-      async function search(e) {
-        console.log("searching")
-        console.log(e)
+      function search(e) {
+        const query = searchInput.value
+        console.log(query)
+        nutrientsDB.search(query)
       }
+
+      window.addEventListener("DOMContentLoaded", async function() {
+        searchInput = document.getElementById("search")
+        searchInput.addEventListener("keyup", search)
+        const response = await fetch("nutrients.tsv")
+        const text = await response.text()
+        nutrientsDB = new NutrientsDB()
+        nutrientsDB.load(text)
+      })
     </script>
   </body>
 </html>

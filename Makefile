@@ -12,6 +12,6 @@ local-stop:  ## stops the local dev server
 	@killall caddy
 
 test:  ## runs the unit tests
-	@node --no-warnings test/trie-tests.mjs
+	@node --no-warnings test/trie-test.mjs
 	@node --no-warnings test/nutrients-db-test.mjs
 .PHONY: test

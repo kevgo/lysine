@@ -57,6 +57,9 @@ export class Trie {
     }
     const firstLetter = query[0]
     const remainder = query.substring(1)
+    if (this.subTries[firstLetter] === undefined) {
+      return []
+    }
     return this.subTries[firstLetter].search(remainder)
   }
 }

@@ -26,3 +26,17 @@ test("Trie - case insensitivity", function() {
   assert(result.length, 1)
   assert(result[0], 13)
 })
+
+test("Trie - full mismatch", function() {
+  const trie = new Trie()
+  trie.add("foo", 12)
+  const result = trie.search("zonk")
+  assert(result.length, 0)
+})
+
+test("Trie - partial mismatch", function() {
+  const trie = new Trie()
+  trie.add("foo", 12)
+  const result = trie.search("foobar")
+  assert(result.length, 0)
+})
