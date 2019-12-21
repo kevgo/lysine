@@ -30,7 +30,7 @@ export class Trie {
 
   add(key, value, depth = 0) {
     key = key.toLowerCase()
-    if (depth > 1) {
+    if (depth > 1 && this.values.length < 30) {
       this.values.push(value)
     }
     if (depth > 6) {
