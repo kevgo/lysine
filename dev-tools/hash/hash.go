@@ -42,7 +42,6 @@ func replaceOccurrences(dir, fileNameClean, fileNameNew string) {
 		}
 		oldFileContent := string(oldFileContentB)
 		reText := fmt.Sprintf(`%s.*%s`, baseFileName(fileNameClean), path.Ext(fileNameClean))
-		fmt.Println(reText)
 		re := regexp.MustCompile(reText)
 		newFileContent := re.ReplaceAllString(oldFileContent, fileNameNew)
 		if oldFileContent == newFileContent {
