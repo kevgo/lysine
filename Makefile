@@ -1,5 +1,4 @@
 build: ## builds all the binaries
-	@rm dev-tools/hash/hash
 	@go build -o dev-tools/hash/hash dev-tools/hash/hash.go
 	dev-tools/hash/hash index.js
 	dev-tools/hash/hash manifest.json

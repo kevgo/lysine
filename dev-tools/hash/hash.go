@@ -10,6 +10,7 @@ import (
 	"path"
 	"path/filepath"
 	"regexp"
+	"strings"
 )
 
 func main() {
@@ -73,10 +74,10 @@ func findMatchingFileWithHashInName(fileNameClean string) string {
 	pattern := fmt.Sprintf("%s*%s", baseFileName(fileNameClean), fileExt)
 	matches, err := filepath.Glob(pattern)
 	if err != nil {
-		log.Fatalf("cannot find files matching %q: %v", pattern, err)
+		log.Fatalf("Error: cannot find files matching %q: %v\n", pattern, err)
 	}
 	if len(matches) != 1 {
-		fmt.Printf("found multiple matching files for %q: %v", fileNameClean, matches)
+		fmt.Printf("Error: found multiple matching files for %q: %v\n", fileNameClean, strings.Join(matches, ", "))
 	}
 	return matches[0]
 }
