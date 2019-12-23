@@ -1,4 +1,4 @@
-import { Trie } from "../index.js"
+import { Trie } from "../index-5431.js"
 import { test, assert } from "./framework.mjs"
 
 test("Trie - impartial match", function() {

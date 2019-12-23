@@ -1,10 +1,7 @@
 // TEST FRAMEWORK
 //
-// Have to build our own test framework here because we want to test code written for the browser.
-// This means `require` doesn't work and we cannot use NPM packages like Mocha.
-
-import * as fs from "fs"
-import * as path from "path"
+// I have to build my own test framework here because these are tests for browser code.
+// This means `require` doesn't work and we cannot use NPM packages like Mocha because they use require.
 
 export async function test(name, testFunc) {
   process.stdout.write(`${name}: `)

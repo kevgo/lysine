@@ -1,9 +1,9 @@
-import { NutrientsDB } from "../index.js"
+import { NutrientsDB } from "../index-5431.js"
 import * as fs from "fs"
 import { test, assert } from "./framework.mjs"
 
 test("NutrientsDB", function() {
-  const content = fs.readFileSync("nutrients.tsv", "utf8")
+  const content = fs.readFileSync("nutrients-be49.tsv", "utf8")
   const nutrientsDB = new NutrientsDB()
   nutrientsDB.load(content)
   const result = nutrientsDB.search("gerber")

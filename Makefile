@@ -1,3 +1,10 @@
+build: ## builds all the binaries
+	@go build -o dev-tools/hash/hash dev-tools/hash/hash.go
+	dev-tools/hash/hash index.js
+	dev-tools/hash/hash manifest.json
+	dev-tools/hash/hash nutrients.tsv
+	dev-tools/hash/hash worker.js
+
 fix: ## fixes all auto-fixable errors
 	@dev-tools/prettier/node_modules/.bin/prettier --write *.md *.css *.html *.json *.js
 

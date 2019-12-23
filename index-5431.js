@@ -6,8 +6,8 @@ export class NutrientsDB {
 
   load(text) {
     for (const line of text.split("\n")) {
-      const [name, lysine, arginine, protein] = line.split("\t")
-      this.foods.push({ name, lysine, arginine, protein })
+      const [name, ratio, total] = line.split("\t")
+      this.foods.push({ name, ratio, total })
     }
     for (let i = 0; i < this.foods.length; i++) {
       const food = this.foods[i]

@@ -13,12 +13,20 @@ You can reach this site at https://kevgo.github.io/lysine
 
 ## Development
 
-Local development:
+Local web server:
 
-- `make local-start`
+- start local web server: `make local-start`
 - open http://penguin.linux.test:2015 in your browser
 - to stop the web server: `make local-stop`
 
 Run tests:
 
-- `make test`
+```
+make test
+```
+
+Compile assets:
+
+```
+make build
+```

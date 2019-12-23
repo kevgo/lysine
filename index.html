@@ -23,15 +23,18 @@
         font-size: 275%;
       }
     </style>
-    <link rel="manifest" href="manifest-1.json" />
+    <link rel="manifest" href="manifest-f414.json" />
     <link rel="apple-touch-icon" href="icons/icon-180.png" />
   </head>
   <body>
     <h1 class="vertical-container">Lysine</h1>
     <input id="search" type="search" autofocus />
+    <table>
+      <tbody id="results"></tbody>
+    </table>
     <script>
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("worker.js").catch(function(error) {
+        navigator.serviceWorker.register("worker-4bb1.js").catch(function(error) {
           console.error("cannot register service worker:", error)
         })
       } else {
@@ -39,21 +42,27 @@
       }
     </script>
     <script type="module">
-      import { NutrientsDB } from "./index.js"
+      import { NutrientsDB } from "./index-5431.js"
 
       let nutrientsDB
       let searchInput
+      let resultsTable
 
       function search(e) {
         const query = searchInput.value
-        console.log(query)
-        nutrientsDB.search(query)
+        let html = ""
+        for (const match of nutrientsDB.search(query)) {
+          html += `<tr><td>${match.ratio}</td><td>${match.total}</td><td>${match.name}</td></tr>`
+        }
+        resultsTable.innerHTML = html
       }
 
       window.addEventListener("DOMContentLoaded", async function() {
         searchInput = document.getElementById("search")
         searchInput.addEventListener("keyup", search)
-        const response = await fetch("nutrients.tsv")
+        resultsTable = document.getElementById("results")
+
+        const response = await fetch("nutrients-be49.tsv")
         const text = await response.text()
         nutrientsDB = new NutrientsDB()
         nutrientsDB.load(text)
