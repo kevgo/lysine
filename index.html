@@ -79,7 +79,7 @@
           }, 100)
         }
 
-        const response = await fetch("nutrients-8426.tsv")
+        const response = await fetch("nutrients-bf4e.tsv")
         const text = await response.text()
         nutrientsDB = new NutrientsDB()
         nutrientsDB.load(text)
