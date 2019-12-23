@@ -84,6 +84,6 @@ func main() {
 		if total == 0.0 {
 			continue
 		}
-		fmt.Printf("%s\t%0.1f\t%0.1f\n", foodName, foodInfo.Lysine/foodInfo.Arginine, foodInfo.Lysine+foodInfo.Arginine)
+		fmt.Printf("%s\t%0.0f\t%0.0f\n", foodName, foodInfo.Lysine/foodInfo.Arginine*10, foodInfo.Lysine+foodInfo.Arginine*10)
 	}
 }

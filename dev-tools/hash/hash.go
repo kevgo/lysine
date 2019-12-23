@@ -9,7 +9,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
-	"strings"
+	"regexp"
 )
 
 func main() {
@@ -21,11 +21,11 @@ func main() {
 	}
 	fmt.Printf("%s --> %s\n", fileNameOld, fileNameNew)
 	os.Rename(fileNameOld, fileNameNew)
-	replaceOccurrences(".", fileNameOld, fileNameNew)
-	replaceOccurrences("test", fileNameOld, fileNameNew)
+	replaceOccurrences(".", fileNameClean, fileNameNew)
+	replaceOccurrences("test", fileNameClean, fileNameNew)
 }
 
-func replaceOccurrences(dir, fileNameOld, fileNameNew string) {
+func replaceOccurrences(dir, fileNameClean, fileNameNew string) {
 	files, err := ioutil.ReadDir(dir)
 	if err != nil {
 		log.Fatalf("cannot list files: %v\n", err)
@@ -40,7 +40,10 @@ func replaceOccurrences(dir, fileNameOld, fileNameNew string) {
 			log.Fatalf("cannot read file %q: %v", file.Name(), err)
 		}
 		oldFileContent := string(oldFileContentB)
-		newFileContent := strings.ReplaceAll(oldFileContent, fileNameOld, fileNameNew)
+		reText := fmt.Sprintf(`%s.*%s`, baseFileName(fileNameClean), path.Ext(fileNameClean))
+		fmt.Println(reText)
+		re := regexp.MustCompile(reText)
+		newFileContent := re.ReplaceAllString(oldFileContent, fileNameNew)
 		if oldFileContent == newFileContent {
 			continue
 		}

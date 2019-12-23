@@ -11,6 +11,15 @@ You can reach this site at https://kevgo.github.io/lysine
   automatically when their content changes because then they have a different
   name.
 
+The data file contains the following numbers:
+
+1. ratio of Lysine to Arginine
+   - 10 = 1:1 ratio
+   - 5 = 1:2 ratio
+   - 30 = 3:1 ratio
+2. total amount of Lysine + Arginine compared to 1 kg
+   - 10 = 10 g Lysine + Arginine per kg of product
+
 ## Development
 
 Local web server:

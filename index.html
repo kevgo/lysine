@@ -8,20 +8,26 @@
     <meta name="description" content="Lysine/Arginine amino acid ratio" />
     <title>Lysine</title>
     <style>
-      body {
-        background-color: #ff9800;
-        color: black;
-      }
+      /* body {
+      } */
 
       .vertical-container {
         display: flex;
         align-items: center;
         justify-content: center;
+        color: #ff9800;
       }
 
       h1.vertical-container {
         font-size: 275%;
       }
+
+      input {
+        width: 100%;
+      }
+
+      /* #results {
+      } */
     </style>
     <link rel="manifest" href="manifest-f414.json" />
     <link rel="apple-touch-icon" href="icons/icon-180.png" />
@@ -52,7 +58,7 @@
         const query = searchInput.value
         let html = ""
         for (const match of nutrientsDB.search(query)) {
-          html += `<tr><td>${match.ratio}</td><td>${match.total}</td><td>${match.name}</td></tr>`
+          html += `<tr class="${match.ratio}-${match.total}"><td>${match.ratio}</td><td>${match.total}</td><td>${match.name}</td></tr>`
         }
         resultsTable.innerHTML = html
       }
@@ -62,7 +68,7 @@
         searchInput.addEventListener("keyup", search)
         resultsTable = document.getElementById("results")
 
-        const response = await fetch("nutrients-be49.tsv")
+        const response = await fetch("nutrients-8426.tsv")
         const text = await response.text()
         nutrientsDB = new NutrientsDB()
         nutrientsDB.load(text)
