@@ -57,6 +57,7 @@
 
       function search(e) {
         const query = searchInput.value
+        history.replaceState({}, "Lysine", `?q=${query}`)
         let html = ""
         for (const match of nutrientsDB.search(query)) {
           html += `<tr class="r${match.ratio}-t${match.total}"><td class="gauge"></td><td>${match.ratio}</td><td>${match.total}</td><td>${match.name}</td></tr>`
@@ -68,6 +69,9 @@
         searchInput = document.getElementById("search")
         searchInput.addEventListener("keyup", search)
         resultsTable = document.getElementById("results")
+
+        const urlParams = new URLSearchParams(window.location.search)
+        searchInput.value = urlParams.get("q")
 
         const response = await fetch("nutrients-8426.tsv")
         const text = await response.text()
