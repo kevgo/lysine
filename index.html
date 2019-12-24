@@ -104,7 +104,7 @@
 
       window.addEventListener("DOMContentLoaded", async function() {
         searchInput = document.getElementById("search")
-        searchInput.addEventListener("keyup", search)
+        searchInput.addEventListener("input", search)
         resultsTable = document.getElementById("results")
 
         const urlParams = new URLSearchParams(window.location.search)
