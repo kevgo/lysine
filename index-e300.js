@@ -18,7 +18,17 @@ export class NutrientsDB {
   }
 
   search(query) {
-    return this.trie.search(query).map(line => this.foods[line])
+    query = query.trim()
+    if (query.length === 0) {
+      return []
+    }
+    const words = query.split(" ")
+    let result = this.trie.search(words[0])
+    for (const word of words.slice(1)) {
+      const matches = this.trie.search(word)
+      result = result.filter(element => matches.includes(element))
+    }
+    return result.slice(0, 30).map(line => this.foods[line])
   }
 }
 
@@ -30,10 +40,8 @@ export class Trie {
 
   add(key, value, depth = 0) {
     key = key.toLowerCase()
-    if (depth > 1 && this.values.length < 30) {
-      this.values.push(value)
-    }
-    if (depth > 6) {
+    this.values.push(value)
+    if (depth > 9) {
       return
     }
     if (key.length === 0) {
