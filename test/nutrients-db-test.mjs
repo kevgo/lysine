@@ -1,4 +1,4 @@
-import { NutrientsDB } from "../index-e300.js"
+import { NutrientsDB } from "../index-4236.js"
 import * as fs from "fs"
 import { test, assert } from "./framework.mjs"
 

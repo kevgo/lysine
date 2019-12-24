@@ -60,6 +60,7 @@ export class Trie {
   }
 
   search(query) {
+    query = query.toLowerCase()
     if (query.length === 0) {
       return this.values
     }
