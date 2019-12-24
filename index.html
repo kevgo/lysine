@@ -8,23 +8,23 @@
     <meta name="description" content="Lysine/Arginine amino acid ratio" />
     <title>Lysine</title>
     <style>
-      /* body {
-      } */
+      body {
+        font-family: "Helvetica", "Arial", sans-serif;
+        font-size: 11pt;
+      }
 
       h1 {
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #ff9800;
+        color: rgb(0, 162, 0);
         font-size: 275%;
+        margin-block-end: 5pt;
       }
 
       input {
         width: 100%;
-      }
-
-      #results .gauge {
-        width: 3ex;
+        border: 1px solid #ff9800;
       }
     </style>
     <link rel="manifest" href="manifest-f414.json" />
@@ -32,6 +32,38 @@
   </head>
   <body>
     <h1>Lysine</h1>
+    <div id="legend">
+      <div class="demo r1"><div class="indicator"></div></div>
+      <div class="demo r2"><div class="indicator"></div></div>
+      <div class="demo r3"><div class="indicator"></div></div>
+      <div class="demo r4"><div class="indicator"></div></div>
+      <div class="demo r5"><div class="indicator"></div></div>
+      <div class="demo r6"><div class="indicator"></div></div>
+      <div class="demo r7"><div class="indicator"></div></div>
+      <div class="demo r8"><div class="indicator"></div></div>
+      <div class="demo r9"><div class="indicator"></div></div>
+      <div class="demo r10"><div class="indicator"></div></div>
+      <div class="demo r11"><div class="indicator"></div></div>
+      <div class="demo r12"><div class="indicator"></div></div>
+      <div class="demo r13"><div class="indicator"></div></div>
+      <div class="demo r14"><div class="indicator"></div></div>
+      <div class="demo r15"><div class="indicator"></div></div>
+      <div class="demo r16"><div class="indicator"></div></div>
+      <div class="demo r17"><div class="indicator"></div></div>
+      <div class="demo r18"><div class="indicator"></div></div>
+      <div class="demo r19"><div class="indicator"></div></div>
+      <div class="demo r20"><div class="indicator"></div></div>
+      <div class="demo r25"><div class="indicator"></div></div>
+      <div class="demo r30"><div class="indicator"></div></div>
+      <div class="demo r35"><div class="indicator"></div></div>
+      <div class="demo r40"><div class="indicator"></div></div>
+      <div class="demo r45"><div class="indicator"></div></div>
+      <div class="demo r50"><div class="indicator"></div></div>
+      <div class="demo r55"><div class="indicator"></div></div>
+      <div class="demo r60"><div class="indicator"></div></div>
+      <div class="demo r65"><div class="indicator"></div></div>
+      <div class="demo r70"><div class="indicator"></div></div>
+    </div>
     <input id="search" type="search" autofocus />
     <table>
       <tbody id="results"></tbody>
@@ -57,9 +89,15 @@
         history.replaceState({}, "Lysine", `?q=${query}`)
         let html = ""
         for (const match of nutrientsDB.search(query)) {
-          html += `<tr class="r${match.ratio} t${match.total}"><td>${match.ratio / 10}</td><td>${
-            match.total
-          }</td><td class="gauge"><div class="indicator"></div></td><td>${match.name}</td></tr>`
+          html += `
+            <tr class="r${match.ratio} t${match.total}">
+              <td>${match.ratio / 10}</td>
+              <td>${match.total}</td>
+              <td class="gauge">
+                <div class="indicator"></div>
+              </td>
+              <td>${match.name}</td>
+            </tr>`
         }
         resultsTable.innerHTML = html
       }
