@@ -3,7 +3,7 @@ import * as fs from "fs"
 import { test, assert } from "./framework.mjs"
 
 test("NutrientsDB", function() {
-  const content = fs.readFileSync("nutrients-9f6a.tsv", "utf8")
+  const content = fs.readFileSync("nutrients-b783.tsv", "utf8")
   const nutrientsDB = new NutrientsDB()
   nutrientsDB.load(content)
   const result = nutrientsDB.search("gerber")

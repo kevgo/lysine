@@ -71,22 +71,43 @@ func parseLine(text string) FileLine {
 
 func formatRatio(ratio float32) float32 {
 	ratio = ratio * 10
-	if ratio <= 20 {
+	switch {
+	case ratio <= 20:
 		return ratio
-	}
-	if ratio <= 25 {
+	case ratio <= 25:
 		return 25
-	}
-	if ratio <= 30 {
+	case ratio <= 30:
 		return 30
-	}
-	if ratio <= 35 {
+	case ratio <= 35:
 		return 35
+	default:
+		return 45
 	}
-	if ratio <= 40 {
+}
+
+func formatAmount(amount float32) float32 {
+	switch {
+	case amount <= 10:
+		return amount
+	case amount <= 15:
+		return 15
+	case amount <= 20:
+		return 20
+	case amount <= 25:
+		return 25
+	case amount <= 30:
+		return 30
+	case amount <= 40:
 		return 40
+	case amount <= 50:
+		return 50
+	case amount <= 60:
+		return 60
+	case amount <= 70:
+		return 70
+	default:
+		return 80
 	}
-	return 45
 }
 
 func main() {
@@ -107,6 +128,6 @@ func main() {
 		if foodInfo.Arginine == 0.0 {
 			continue
 		}
-		fmt.Printf("%s\t%0.0f\t%0.0f\n", foodName, formatRatio(foodInfo.Lysine/foodInfo.Arginine), foodInfo.Lysine+foodInfo.Arginine*10)
+		fmt.Printf("%s\t%0.0f\t%0.0f\n", foodName, formatRatio(foodInfo.Lysine/foodInfo.Arginine), formatAmount(foodInfo.Lysine+foodInfo.Arginine))
 	}
 }

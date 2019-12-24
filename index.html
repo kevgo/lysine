@@ -57,7 +57,7 @@
         history.replaceState({}, "Lysine", `?q=${query}`)
         let html = ""
         for (const match of nutrientsDB.search(query)) {
-          html += `<tr class="r${match.ratio} t${match.total}"><td class="gauge"></td><td>${match.ratio}</td><td>${match.total}</td><td>${match.name}</td></tr>`
+          html += `<tr class="r${match.ratio} t${match.total}"><td class="gauge"><div class="indicator"></div></td><td>${match.ratio}</td><td>${match.total}</td><td>${match.name}</td></tr>`
         }
         resultsTable.innerHTML = html
       }
@@ -76,14 +76,14 @@
           }, 100)
         }
 
-        const response = await fetch("nutrients-9f6a.tsv")
+        const response = await fetch("nutrients-b783.tsv")
         const text = await response.text()
         nutrientsDB = new NutrientsDB()
         nutrientsDB.load(text)
 
         var deferredCSS = document.createElement("link")
         deferredCSS.rel = "stylesheet"
-        deferredCSS.href = "index-9e48.css"
+        deferredCSS.href = "index-1115.css"
         deferredCSS.type = "text/css"
         var existingLink = document.getElementsByTagName("link")[0]
         existingLink.parentNode.insertBefore(deferredCSS, existingLink)

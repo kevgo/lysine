@@ -1,0 +1,188 @@
+#results .r1 .indicator {
+  background-color: rgb(100, 0, 0);
+}
+
+#results .r2 .indicator {
+  background-color: rgb(150, 0, 0);
+}
+
+#results .r3 .indicator {
+  background-color: rgb(200, 0, 0);
+}
+
+#results .r4 .indicator {
+  background-color: rgb(255, 0, 0);
+}
+
+#results .r5 .indicator {
+  background-color: rgb(255, 50, 0);
+}
+
+#results .r6 .indicator {
+  background-color: rgb(255, 100, 0);
+}
+
+#results .r7 .indicator {
+  background-color: rgb(255, 153, 0);
+}
+
+#results .r8 .indicator {
+  background-color: rgb(255, 187, 0);
+}
+
+#results .r9 .indicator {
+  background-color: rgb(255, 221, 0);
+}
+
+#results .r10 .indicator {
+  background-color: rgb(255, 255, 0);
+}
+
+#results .r11 .indicator {
+  background-color: rgb(235, 255, 0);
+}
+
+#results .r12 .indicator {
+  background-color: rgb(215, 255, 0);
+}
+
+#results .r13 .indicator {
+  background-color: rgb(195, 255, 0);
+}
+
+#results .r14 .indicator {
+  background-color: rgb(175, 255, 0);
+}
+
+#results .r15 .indicator {
+  background-color: rgb(153, 255, 0);
+}
+
+#results .r16 .indicator {
+  background-color: rgb(123, 255, 0);
+}
+
+#results .r17 .indicator {
+  background-color: rgb(93, 0, 0);
+}
+
+#results .r18 .indicator {
+  background-color: rgb(62, 255, 0);
+}
+
+#results .r19 .indicator {
+  background-color: rgb(31, 255, 0);
+}
+
+#results .r20 .indicator {
+  background-color: rgb(0, 255, 0);
+}
+
+#results .r25 .indicator {
+  background-color: rgb(100, 224, 0);
+}
+
+#results .r30 .indicator {
+  background-color: rgb(0, 193, 0);
+}
+
+#results .r35 .indicator {
+  background-color: rgb(0, 162, 0);
+}
+
+#results .r40 .indicator {
+  background-color: rgb(0, 131, 0);
+}
+
+#results .r45 .indicator {
+  background-color: rgb(0, 100, 0);
+}
+
+#results .gauge {
+  width: 20px;
+}
+
+#results .indicator {
+  height: 1em;
+  margin-left: auto;
+}
+
+#results .t0 .indicator {
+  width: 1px;
+}
+
+#results .t1 .indicator {
+  width: 2px;
+}
+
+#results .t2 .indicator {
+  width: 4px;
+}
+
+#results .t3 .indicator {
+  width: 5px;
+}
+
+#results .t4 .indicator {
+  width: 6px;
+}
+
+#results .t5 .indicator {
+  width: 7px;
+}
+
+#results .t6 .indicator {
+  width: 8px;
+}
+
+#results .t7 .indicator {
+  width: 9px;
+}
+
+#results .t8 .indicator {
+  width: 10px;
+}
+
+#results .t9 .indicator {
+  width: 11px;
+}
+
+#results .t10 .indicator {
+  width: 12px;
+}
+
+#results .t15 .indicator {
+  width: 17px;
+}
+
+#results .t20 .indicator {
+  width: 23px;
+}
+
+#results .t25 .indicator {
+  width: 28px;
+}
+
+#results .t30 .indicator {
+  width: 33px;
+}
+
+#results .t40 .indicator {
+  width: 43px;
+}
+
+#results .t50 .indicator {
+  width: 53px;
+}
+
+#results .t60 .indicator {
+  width: 63px;
+}
+
+#results .t70 .indicator {
+  width: 73px;
+}
+
+#results .t80 .indicator {
+  width: 83px;
+}
