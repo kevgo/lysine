@@ -91,9 +91,9 @@
         for (const match of nutrientsDB.search(query)) {
           html += `
             <tr class="r${match.ratio} t${match.total}">
-              <td>${match.ratio / 10}</td>
-              <td>${match.total}</td>
               <td class="gauge">
+                ${match.ratio / 10}
+                ${match.total}
                 <div class="indicator"></div>
               </td>
               <td>${match.name}</td>
@@ -123,7 +123,7 @@
 
         var deferredCSS = document.createElement("link")
         deferredCSS.rel = "stylesheet"
-        deferredCSS.href = "index-1115.css"
+        deferredCSS.href = "index-69c5.css"
         deferredCSS.type = "text/css"
         var existingLink = document.getElementsByTagName("link")[0]
         existingLink.parentNode.insertBefore(deferredCSS, existingLink)
