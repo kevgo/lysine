@@ -11,14 +11,11 @@
       /* body {
       } */
 
-      .vertical-container {
+      h1 {
         display: flex;
         align-items: center;
         justify-content: center;
         color: #ff9800;
-      }
-
-      h1.vertical-container {
         font-size: 275%;
       }
 
@@ -34,7 +31,7 @@
     <link rel="apple-touch-icon" href="icons/icon-180.png" />
   </head>
   <body>
-    <h1 class="vertical-container">Lysine</h1>
+    <h1>Lysine</h1>
     <input id="search" type="search" autofocus />
     <table>
       <tbody id="results"></tbody>
@@ -60,7 +57,7 @@
         history.replaceState({}, "Lysine", `?q=${query}`)
         let html = ""
         for (const match of nutrientsDB.search(query)) {
-          html += `<tr class="r${match.ratio}-t${match.total}"><td class="gauge"></td><td>${match.ratio}</td><td>${match.total}</td><td>${match.name}</td></tr>`
+          html += `<tr class="r${match.ratio} t${match.total}"><td class="gauge"></td><td>${match.ratio}</td><td>${match.total}</td><td>${match.name}</td></tr>`
         }
         resultsTable.innerHTML = html
       }
@@ -79,14 +76,14 @@
           }, 100)
         }
 
-        const response = await fetch("nutrients-bf4e.tsv")
+        const response = await fetch("nutrients-9f6a.tsv")
         const text = await response.text()
         nutrientsDB = new NutrientsDB()
         nutrientsDB.load(text)
 
         var deferredCSS = document.createElement("link")
         deferredCSS.rel = "stylesheet"
-        deferredCSS.href = "index.css"
+        deferredCSS.href = "index-9e48.css"
         deferredCSS.type = "text/css"
         var existingLink = document.getElementsByTagName("link")[0]
         existingLink.parentNode.insertBefore(deferredCSS, existingLink)

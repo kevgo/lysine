@@ -12,18 +12,18 @@ import (
 type FileLine struct {
 	FoodName       string
 	NutrientName   string
-	NutrientAmount float64 // in grams
+	NutrientAmount float32 // in grams
 }
 
 // FoodInfo represents all information known about 100g of food.
 type FoodInfo struct {
 	Name         string  // Name of the food
-	Lysine       float64 // amount of Lysine in the serving, in mg
-	Arginine     float64 // amount of Arginine in the serving, in mg
-	Protein      float64 // amount of protein in the serving, in mg
-	Carbohydrate float64
-	Fat          float64
-	Water        float64
+	Lysine       float32 // amount of Lysine in the serving, in mg
+	Arginine     float32 // amount of Arginine in the serving, in mg
+	Protein      float32 // amount of protein in the serving, in mg
+	Carbohydrate float32
+	Fat          float32
+	Water        float32
 }
 
 // FoodDatabase contains information about all food
@@ -57,7 +57,7 @@ func (fd *FoodDatabase) Add(line FileLine) {
 
 func parseLine(text string) FileLine {
 	parts := strings.Split(text, "\t")
-	amount, err := strconv.ParseFloat(parts[3], 64)
+	amount, err := strconv.ParseFloat(parts[3], 32)
 	if err != nil {
 		fmt.Printf("cannot parse amount %q: %v\n", parts[3], err)
 		os.Exit(1)
@@ -65,8 +65,28 @@ func parseLine(text string) FileLine {
 	return FileLine{
 		FoodName:       parts[0],
 		NutrientName:   parts[1],
-		NutrientAmount: amount,
+		NutrientAmount: float32(amount),
 	}
+}
+
+func formatRatio(ratio float32) float32 {
+	ratio = ratio * 10
+	if ratio <= 20 {
+		return ratio
+	}
+	if ratio <= 25 {
+		return 25
+	}
+	if ratio <= 30 {
+		return 30
+	}
+	if ratio <= 35 {
+		return 35
+	}
+	if ratio <= 40 {
+		return 40
+	}
+	return 45
 }
 
 func main() {
@@ -87,6 +107,6 @@ func main() {
 		if foodInfo.Arginine == 0.0 {
 			continue
 		}
-		fmt.Printf("%s\t%0.0f\t%0.0f\n", foodName, foodInfo.Lysine/foodInfo.Arginine*10, foodInfo.Lysine+foodInfo.Arginine*10)
+		fmt.Printf("%s\t%0.0f\t%0.0f\n", foodName, formatRatio(foodInfo.Lysine/foodInfo.Arginine), foodInfo.Lysine+foodInfo.Arginine*10)
 	}
 }
