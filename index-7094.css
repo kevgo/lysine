@@ -1,9 +1,10 @@
 #results .gauge {
   width: 60px;
+  height: 1em;
 }
 
 #results .indicator {
-  height: 1em;
+  height: 100%;
   margin-left: auto;
   float: right;
 }
