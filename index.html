@@ -22,6 +22,7 @@
       h1 {
         color: rgb(0, 162, 0);
         font-size: 275%;
+        margin-block-start: 0;
         margin-block-end: 5pt;
       }
 
@@ -32,10 +33,15 @@
         font-size: 14pt;
       }
 
+      input:focus {
+        outline: none !important;
+        border: 1px solid #ff9800;
+      }
+
       #legend {
         width: 352px;
         text-align: center;
-        margin: 20px auto 20px auto;
+        margin: 0 auto 10px auto;
         height: 25px;
       }
 
@@ -49,6 +55,9 @@
       }
 
       @media only screen and (min-width: 600px) {
+        h1 {
+          margin-block-start: 15pt;
+        }
         input {
           width: 30ex;
         }
