@@ -182,7 +182,7 @@
         <div class="demo r65"><div class="indicator"></div></div>
         <div class="demo r70"><div class="indicator"></div></div>
       </div>
-      <input id="search" type="search" autofocus />
+      <input id="search" type="search" oninput="search()" autofocus />
     </div>
     <table>
       <tbody id="results"></tbody>
@@ -199,37 +199,30 @@
     <script type="module">
       import { NutrientsDB } from "./index-5b1e.js"
 
-      let nutrientsDB
-      let searchInput
-      let resultsTable
-
-      function search(e) {
-        const query = searchInput.value
+      window.search = function(e) {
+        const query = window.searchInput.value
         history.replaceState({}, "Lysine", `?q=${query}`)
         let html = ""
-        for (const match of nutrientsDB.search(query)) {
+        for (const match of window.nutrientsDB.search(query)) {
           html += `
             <tr class="r${match.ratio} t${match.total}">
               <td class="gauge">
-                ${match.ratio / 10}
-                ${match.total}
                 <div class="indicator"></div>
               </td>
               <td>${match.name}</td>
             </tr>`
         }
-        resultsTable.innerHTML = html
+        window.resultsTable.innerHTML = html
       }
 
       window.addEventListener("DOMContentLoaded", async function() {
-        searchInput = document.getElementById("search")
-        searchInput.addEventListener("input", search)
-        resultsTable = document.getElementById("results")
+        window.searchInput = document.getElementById("search")
+        window.resultsTable = document.getElementById("results")
 
         const urlParams = new URLSearchParams(window.location.search)
         const query = urlParams.get("q")
         if (query != "") {
-          searchInput.value = query
+          window.searchInput.value = query
           setTimeout(function() {
             search()
           }, 100)
@@ -237,8 +230,8 @@
 
         const response = await fetch("nutrients-b783.tsv")
         const text = await response.text()
-        nutrientsDB = new NutrientsDB()
-        nutrientsDB.load(text)
+        window.nutrientsDB = new NutrientsDB()
+        window.nutrientsDB.load(text)
 
         var deferredCSS = document.createElement("link")
         deferredCSS.rel = "stylesheet"
