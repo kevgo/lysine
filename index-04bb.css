@@ -1,0 +1,92 @@
+#results .gauge {
+  width: 60px;
+  height: 1em;
+}
+
+#results .indicator {
+  height: 100%;
+  margin-left: auto;
+  float: right;
+}
+
+/* TOTALS */
+
+#results .t0 .indicator {
+  width: 3px;
+}
+
+#results .t1 .indicator {
+  width: 6px;
+}
+
+#results .t2 .indicator {
+  width: 9px;
+}
+
+#results .t3 .indicator {
+  width: 12px;
+}
+
+#results .t4 .indicator {
+  width: 15px;
+}
+
+#results .t5 .indicator {
+  width: 18px;
+}
+
+#results .t6 .indicator {
+  width: 21px;
+}
+
+#results .t7 .indicator {
+  width: 24px;
+}
+
+#results .t8 .indicator {
+  width: 27px;
+}
+
+#results .t9 .indicator {
+  width: 30px;
+}
+
+#results .t10 .indicator {
+  width: 33px;
+}
+
+#results .t15 .indicator {
+  width: 36px;
+}
+
+#results .t20 .indicator {
+  width: 40px;
+}
+
+#results .t25 .indicator {
+  width: 43px;
+}
+
+#results .t30 .indicator {
+  width: 46px;
+}
+
+#results .t40 .indicator {
+  width: 49px;
+}
+
+#results .t50 .indicator {
+  width: 52px;
+}
+
+#results .t60 .indicator {
+  width: 55px;
+}
+
+#results .t70 .indicator {
+  width: 58px;
+}
+
+#results .t80 .indicator {
+  width: 61px;
+}
