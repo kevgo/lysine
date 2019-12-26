@@ -200,28 +200,44 @@
       import { NutrientsDB } from "./index-5b1e.js"
 
       window.search = function(searchInput) {
-        const query = searchInput.value
+        const query = window.searchInput.value
         history.replaceState({}, "Lysine", `?q=${query}`)
         let html = ""
-        for (const match of window.nutrientsDB.search(query)) {
+        window.searchResults = window.nutrientsDB.search(query)
+        for (const [i, match] of window.searchResults.entries()) {
           html += `
-            <tr class="r${match.ratio} t${match.total}">
+            <tr class="r${match.ratio} t${match.total}" data-id="${i}" onmouseover="showData(this)" onmouseout="hideData(this)">
               <td class="gauge">
                 <div class="indicator"></div>
               </td>
-              <td>${match.name}</td>
+              <td class="content">${match.name}</td>
             </tr>`
         }
         window.resultsTable.innerHTML = html
       }
 
+      window.showData = function(e) {
+        const result = window.searchResults[e.dataset.id]
+        const content = e.querySelector(".content")
+        content.classList.add("data")
+        content.innerHTML = `Lysine/Arginine ratio: ${result.ratio / 10}, Lysine+Arginine: ${result.total} g / kg`
+      }
+
+      window.hideData = function(e) {
+        const result = window.searchResults[e.dataset.id]
+        const content = e.querySelector(".content")
+        content.classList.remove("data")
+        content.innerHTML = result.name
+      }
+
       window.addEventListener("DOMContentLoaded", async function() {
+        window.searchInput = document.getElementById("search")
         window.resultsTable = document.getElementById("results")
 
         const urlParams = new URLSearchParams(window.location.search)
         const query = urlParams.get("q")
         if (query != "") {
-          document.getElementById("search").value = query
+          window.searchInput.value = query
           setTimeout(function() {
             search()
           }, 100)
@@ -234,7 +250,7 @@
 
         var deferredCSS = document.createElement("link")
         deferredCSS.rel = "stylesheet"
-        deferredCSS.href = "index-2596.css"
+        deferredCSS.href = "index-0afa.css"
         deferredCSS.type = "text/css"
         var existingLink = document.getElementsByTagName("link")[0]
         existingLink.parentNode.insertBefore(deferredCSS, existingLink)
