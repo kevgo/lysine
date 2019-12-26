@@ -182,7 +182,7 @@
         <div class="demo r65"><div class="indicator"></div></div>
         <div class="demo r70"><div class="indicator"></div></div>
       </div>
-      <input id="search" type="search" oninput="search()" autofocus />
+      <input id="search" type="search" oninput="search(this)" autofocus />
     </div>
     <table>
       <tbody id="results"></tbody>
@@ -199,8 +199,8 @@
     <script type="module">
       import { NutrientsDB } from "./index-5b1e.js"
 
-      window.search = function(e) {
-        const query = window.searchInput.value
+      window.search = function(searchInput) {
+        const query = searchInput.value
         history.replaceState({}, "Lysine", `?q=${query}`)
         let html = ""
         for (const match of window.nutrientsDB.search(query)) {
@@ -216,13 +216,12 @@
       }
 
       window.addEventListener("DOMContentLoaded", async function() {
-        window.searchInput = document.getElementById("search")
         window.resultsTable = document.getElementById("results")
 
         const urlParams = new URLSearchParams(window.location.search)
         const query = urlParams.get("q")
         if (query != "") {
-          window.searchInput.value = query
+          document.getElementById("search").value = query
           setTimeout(function() {
             search()
           }, 100)
