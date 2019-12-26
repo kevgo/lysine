@@ -217,49 +217,36 @@
       }
 
       window.onMouseOver = function(tr) {
+        showRow(tr)
+      }
+
+      window.onMouseOut = function(tr) {
+        hideRow(tr)
+      }
+
+      window.onTouchStart = function(tr) {
+        const touchedAnAlreadyShowingRow = tr.querySelector(".content").classList.contains("data")
+        // remove all showing rows
+        for (const contentDiv of window.resultsTable.getElementsByClassName("data")) {
+          hideRow(contentDiv.closest("tr"))
+        }
+        if (!touchedAnAlreadyShowingRow) {
+          showRow(tr)
+        }
+      }
+
+      function showRow(tr) {
         const result = window.searchResults[tr.dataset.id]
         const content = tr.querySelector(".content")
         content.classList.add("data")
         content.innerHTML = `Lysine/Arginine ratio: ${result.ratio / 10}, Lysine+Arginine: ${result.total} g / kg`
       }
 
-      window.onMouseOut = function(tr) {
+      function hideRow(tr) {
         const result = window.searchResults[tr.dataset.id]
-        const content = tr.querySelector(".content")
-        content.classList.remove("data")
-        content.innerHTML = result.name
-      }
-
-      window.onTouchStart = function(tr) {
-        const touchedRow = tr.dataset.id
-        if (window.currentShowingRow === undefined) {
-          // no row showing right now
-          window.currentShowingRow = touchedRow
-          const result = window.searchResults[touchedRow]
-          const content = tr.querySelector(".content")
-          content.classList.add("data")
-          content.innerHTML = `Lysine/Arginine ratio: ${result.ratio / 10}, Lysine+Arginine: ${result.total} g / kg`
-        } else if (window.currentShowingRow === touchedRow) {
-          // touched the currently showing row --> unshow
-          window.currentShowingRow = undefined
-          const result = window.searchResults[touchedRow]
-          const content = tr.querySelector(".content")
-          content.classList.remove("data")
-          content.innerHTML = result.name
-        } else {
-          // touched a row while another is currently showing --> unshow the currently showing and show the new row
-          const currentResult = window.searchResults[window.currentShowingRow]
-          const currentContent = tr.querySelector(".content")
-          currentContent.classList.remove("data")
-          currentContent.innerHTML = currentResult.name
-
-          const touchedResult = window.searchResults[touchedRow]
-          const touchedContent = tr.querySelector(".content")
-          touchedContent.classList.add("data")
-          touchedContent.innerHTML = `Lysine/Arginine ratio: ${touchedResult.ratio / 10},
-          Lysine+Arginine: ${touchedResult.total} g / kg`
-          window.currentShowingRow = touchedRow
-        }
+        const contentDiv = tr.querySelector(".content")
+        contentDiv.classList.remove("data")
+        contentDiv.innerHTML = result.name
       }
 
       window.addEventListener("DOMContentLoaded", async function() {
