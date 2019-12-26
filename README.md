@@ -1,41 +1,47 @@
-# Amino Acid balance
+# Lysine/Arginine ratio for common foods
 
-You can reach this site at https://kevgo.github.io/lysine
+### Web site
 
-## Architecture
+https://kevgo.github.io/lysine
 
-- CSS and JS assets are embedded into the main HTML file for non-blocking page
-  load
-- all other static assets (manifest.json, raw-data.json, icons) have
-  content-addressable names. We cache them aggressively, they get re-fetched
-  automatically when their content changes because then they have a different
-  name.
+Once the browser has cached the assets, the site is available offline.
 
-The data file contains the following numbers:
+### Application
 
-1. ratio of Lysine to Arginine
-   - 10 = 1:1 ratio
-   - 5 = 1:2 ratio
-   - 30 = 3:1 ratio
-2. total amount of Lysine + Arginine compared to 1 kg
-   - 10 = 10 g Lysine + Arginine per kg of product
+This is a
+[progressive web application](https://en.wikipedia.org/wiki/Progressive_web_application).
+You can install it from a modern browser onto PCs, tablets, and smart phones.
 
-## Development
+### Development
 
-Local web server:
+#### local web server
 
 - start local web server: `make local-start`
 - open http://penguin.linux.test:2015 in your browser
 - to stop the web server: `make local-stop`
 
-Run tests:
+#### debug on mobile phone
 
-```
-make test
-```
+- `ssh -R 80:localhost:2015 ssh.localhost.run`
 
-Compile assets:
+#### testing
 
-```
-make build
-```
+- run unit tests: `make test`
+
+#### asset management
+
+- assets use content-addressed names, you have to rebuild them after making
+  changes
+- build assets: `make build`
+
+#### data
+
+The data file contains the following data:
+
+- column 1: food name
+- column 2: ratio of Lysine to Arginine
+  - 10 = 1:1 ratio
+  - 5 = 1:2 ratio
+  - 30 = 3:1 ratio
+- column 3: total amount of Lysine + Arginine compared to 1 kg
+  - 10 = 10 g Lysine + Arginine per kg of product
