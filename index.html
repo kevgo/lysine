@@ -206,7 +206,7 @@
         window.searchResults = window.nutrientsDB.search(query)
         for (const [i, match] of window.searchResults.entries()) {
           html += `
-            <tr class="r${match.ratio} t${match.total}" data-id="${i}" onmouseover="showData(this)" onmouseout="hideData(this)">
+            <tr class="r${match.ratio} t${match.total}" data-id="${i}" onmouseover="showData(this)" onmouseout="hideData(this)" ontouchstart="showData(this)">
               <td class="gauge">
                 <div class="indicator"></div>
               </td>
