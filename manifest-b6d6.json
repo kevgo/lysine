@@ -15,6 +15,6 @@
   ],
   "start_url": "/lysine/index.html",
   "display": "standalone",
-  "background_color": "#ff0000",
-  "theme_color": "#ff0000"
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
 }
