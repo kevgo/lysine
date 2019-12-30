@@ -41,7 +41,7 @@ func replaceOccurrences(dir, fileNameClean, fileNameNew string) {
 			log.Fatalf("cannot read file %q: %v", file.Name(), err)
 		}
 		oldFileContent := string(oldFileContentB)
-		reText := fmt.Sprintf(`%s.*%s`, baseFileName(fileNameClean), path.Ext(fileNameClean))
+		reText := fmt.Sprintf(`%s.*?%s`, baseFileName(fileNameClean), path.Ext(fileNameClean))
 		re := regexp.MustCompile(reText)
 		newFileContent := re.ReplaceAllString(oldFileContent, fileNameNew)
 		if oldFileContent == newFileContent {
