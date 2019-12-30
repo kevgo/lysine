@@ -2,6 +2,9 @@ build: ## builds all the binaries
 	@go build -o dev-tools/hash/hash dev-tools/hash/hash.go
 	dev-tools/hash/hash index.js
 	dev-tools/hash/hash index.css
+	dev-tools/hash/hash icons/icon-128.png
+	dev-tools/hash/hash icons/icon-180.png
+	dev-tools/hash/hash icons/icon-512.png
 	dev-tools/hash/hash manifest.json
 	dev-tools/hash/hash nutrients.tsv
 	dev-tools/hash/hash worker.js

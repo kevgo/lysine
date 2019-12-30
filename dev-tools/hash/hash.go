@@ -75,8 +75,13 @@ func findMatchingFileWithHashInName(fileNameClean string) string {
 	if err != nil {
 		log.Fatalf("Error: cannot find files matching %q: %v\n", pattern, err)
 	}
+	if len(matches) == 0 {
+		fmt.Printf("\nError: found no matching files for %q: %v\n\n", fileNameClean, strings.Join(matches, ", "))
+		os.Exit(1)
+	}
 	if len(matches) != 1 {
-		fmt.Printf("Error: found multiple matching files for %q: %v\n", fileNameClean, strings.Join(matches, ", "))
+		fmt.Printf("Error: found multiple matching files for %q: %v\n%v\n", fileNameClean, matches, strings.Join(matches, ", "))
+		os.Exit(1)
 	}
 	return matches[0]
 }
