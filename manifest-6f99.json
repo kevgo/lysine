@@ -3,12 +3,12 @@
   "short_name": "Lysine",
   "icons": [
     {
-      "src": "icons/icon-128-a00f.png",
+      "src": "icons/icon-128-15ce.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "icons/icon-512-584c.png",
+      "src": "icons/icon-512-c94c.png",
       "sizes": "512x512",
       "type": "image/png"
     }
