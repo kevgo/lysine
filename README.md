@@ -8,8 +8,9 @@ Once the browser has cached the assets, the site is available offline.
 
 ### Application
 
-This is a [progressive web application](https://en.wikipedia.org/wiki/Progressive_web_application). You can install it
-from a modern browser onto PCs, tablets, and smart phones.
+This is a
+[progressive web application](https://en.wikipedia.org/wiki/Progressive_web_application).
+You can install it from a modern browser onto PCs, tablets, and smart phones.
 
 ### Development
 
@@ -29,7 +30,8 @@ from a modern browser onto PCs, tablets, and smart phones.
 
 #### asset management
 
-- assets use content-addressed names, you have to rebuild them after making changes
+- assets use content-addressed names, you have to rebuild them after making
+  changes
 - build assets: `make build`
 
 #### data
