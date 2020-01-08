@@ -25,6 +25,6 @@
 
 4.  convert the exported data to the format needed by this application
 
-    cat exported.tsv | go run dev-tools/convert/convert.go > nutrients.tsv
+        cat exported.tsv | go run dev-tools/convert/convert.go > nutrients.tsv
 
 5.  once imported, run `make build` to give this data file a content-addressed name
