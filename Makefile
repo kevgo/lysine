@@ -23,6 +23,9 @@ local-start:  ## starts the local dev server
 local-stop:  ## stops the local dev server
 	@killall caddy
 
+stats:  # shows code statistics
+	@find . -type f | grep -v './dev-tools/' | grep -v '\./.git/' | xargs scc
+
 test:  ## runs the unit tests
 	@node --no-warnings test/trie-test.mjs
 	@node --no-warnings test/is-letter-test.mjs

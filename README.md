@@ -45,3 +45,8 @@ The data file contains the following data:
   - 30 = 3:1 ratio
 - column 3: total amount of Lysine + Arginine compared to 1 kg
   - 10 = 10 g Lysine + Arginine per kg of product
+
+#### code statistics
+
+- install [scc](https://github.com/boyter/scc)
+- run `make stats`
