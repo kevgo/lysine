@@ -11,10 +11,10 @@ build: ## builds all the binaries
 	dev-tools/hash/hash worker.js
 
 fix: ## fixes all auto-fixable errors
-	@dev-tools/prettier/node_modules/.bin/prettier --write *.md *.css *.html *.json *.js
+	@dev-tools/prettier/node_modules/.bin/prettier --write .
 
 lint: ## displays lint errors
-	@dev-tools/prettier/node_modules/.bin/prettier -c *.md *.css *.html *.json *.js
+	@dev-tools/prettier/node_modules/.bin/prettier -c .
 
 local-start:  ## starts the local dev server
 	@./dev-tools/caddy/caddy &
