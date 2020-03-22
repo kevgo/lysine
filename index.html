@@ -190,7 +190,7 @@
     </table>
     <script>
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("worker-4bb1.js").catch(function(error) {
+        navigator.serviceWorker.register("worker-4bb1.js").catch(function (error) {
           console.error("cannot register service worker:", error)
         })
       } else {
@@ -200,7 +200,7 @@
     <script type="module">
       import { NutrientsDB } from "./index-5b1e.js"
 
-      window.search = function(searchInput) {
+      window.search = function (searchInput) {
         const query = window.searchInput.value
         history.replaceState({}, "Lysine", `?q=${query}`)
         let html = ""
@@ -217,15 +217,15 @@
         window.resultsTable.innerHTML = html
       }
 
-      window.onMouseOver = function(tr) {
+      window.onMouseOver = function (tr) {
         showRow(tr)
       }
 
-      window.onMouseOut = function(tr) {
+      window.onMouseOut = function (tr) {
         hideRow(tr)
       }
 
-      window.onTouchStart = function(tr) {
+      window.onTouchStart = function (tr) {
         const touchedAnAlreadyShowingRow = tr.querySelector(".content").classList.contains("data")
         // remove all showing rows
         for (const contentDiv of window.resultsTable.getElementsByClassName("data")) {
@@ -250,7 +250,7 @@
         contentDiv.innerHTML = result.name
       }
 
-      window.addEventListener("DOMContentLoaded", async function() {
+      window.addEventListener("DOMContentLoaded", async function () {
         window.searchInput = document.getElementById("search")
         window.resultsTable = document.getElementById("results")
 
@@ -258,7 +258,7 @@
         const query = urlParams.get("q")
         if (query != "") {
           window.searchInput.value = query
-          setTimeout(function() {
+          setTimeout(function () {
             search()
           }, 100)
         }

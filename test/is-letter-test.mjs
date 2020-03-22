@@ -1,7 +1,7 @@
 import { isLetter } from "../index-5b1e.js"
 import { test, assert } from "./framework.mjs"
 
-test("isLetter", async function() {
+test("isLetter", async function () {
   const letters = ["a", "b", "z", "A", "B", "Z"]
   for (const letter of letters) {
     assert(isLetter(letter), true, letter)

@@ -5,7 +5,7 @@
 
 export async function test(name, testFunc) {
   process.stdout.write(`${name}: `)
-  const keepAlive = setTimeout(function() {
+  const keepAlive = setTimeout(function () {
     console.log("timeout!")
     process.exit(1)
   }, 100)

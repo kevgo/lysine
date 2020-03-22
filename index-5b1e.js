@@ -26,9 +26,9 @@ export class NutrientsDB {
     let result = this.trie.search(words[0])
     for (const word of words.slice(1)) {
       const matches = this.trie.search(word)
-      result = result.filter(element => matches.includes(element))
+      result = result.filter((element) => matches.includes(element))
     }
-    return result.slice(0, 100).map(line => this.foods[line])
+    return result.slice(0, 100).map((line) => this.foods[line])
   }
 }
 
