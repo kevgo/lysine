@@ -10,8 +10,8 @@
 
 ### why we need it
 
-- content-addressed names allow aggressive caching (for offline use) while
-  limiting reloading to assets that have changes
+- content-addressed names allow aggressive caching (for offline use) while limiting reloading to assets that have
+  changes
 
 ### how it works
 

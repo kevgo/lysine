@@ -2,7 +2,7 @@ import { NutrientsDB } from "../index-5b1e.js"
 import * as fs from "fs"
 import { test, assert } from "./framework.mjs"
 
-test("NutrientsDB - single search term", function () {
+test("NutrientsDB - single search term", function() {
   const content = fs.readFileSync("nutrients-b783.tsv", "utf8")
   const nutrientsDB = new NutrientsDB()
   nutrientsDB.load(content)
@@ -10,7 +10,7 @@ test("NutrientsDB - single search term", function () {
   assert(result.length, 4)
 })
 
-test("NutrientsDB - multiple search terms", function () {
+test("NutrientsDB - multiple search terms", function() {
   const content = fs.readFileSync("nutrients-b783.tsv", "utf8")
   const nutrientsDB = new NutrientsDB()
   nutrientsDB.load(content)

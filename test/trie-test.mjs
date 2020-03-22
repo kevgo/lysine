@@ -1,7 +1,7 @@
 import { Trie } from "../index-5b1e.js"
 import { test, assert } from "./framework.mjs"
 
-test("Trie - impartial match", function () {
+test("Trie - impartial match", function() {
   const trie = new Trie()
   trie.add("foo", 12)
   trie.add("fool", 13)
@@ -11,7 +11,7 @@ test("Trie - impartial match", function () {
   assert(result[1], 13)
 })
 
-test("Trie - full match", function () {
+test("Trie - full match", function() {
   const trie = new Trie()
   trie.add("foo", 12)
   const result = trie.search("foo")
@@ -19,21 +19,21 @@ test("Trie - full match", function () {
   assert(result[0], 12)
 })
 
-test("Trie - full mismatch", function () {
+test("Trie - full mismatch", function() {
   const trie = new Trie()
   trie.add("foo", 12)
   const result = trie.search("zonk")
   assert(result.length, 0)
 })
 
-test("Trie - partial mismatch", function () {
+test("Trie - partial mismatch", function() {
   const trie = new Trie()
   trie.add("foo", 12)
   const result = trie.search("foobar")
   assert(result.length, 0)
 })
 
-test("Trie - case insensitive index", function () {
+test("Trie - case insensitive index", function() {
   const trie = new Trie()
   trie.add("FOOL", 13)
   const result = trie.search("fool")
@@ -41,7 +41,7 @@ test("Trie - case insensitive index", function () {
   assert(result[0], 13)
 })
 
-test("Trie - case insensitive search", function () {
+test("Trie - case insensitive search", function() {
   const trie = new Trie()
   trie.add("foo", 12)
   const result = trie.search("Fo")
