@@ -1,6 +1,6 @@
 {
   "name": "lysine-dev-tools",
   "devDependencies": {
-    "prettier": "2.0.2"
+    "prettier": "2.0.5"
   }
 }
